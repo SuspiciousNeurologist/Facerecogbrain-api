@@ -22,11 +22,13 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.post("/signin", signin.handleSignIn(db,bcrypt));
+app.post('/',(req,res)=>{res.send('It is working!')})
 
-app.post("/register",register.handleRegister(db,bcrypt));
+app.post('/signin', signin.handleSignIn(db,bcrypt));
 
-app.get("/profile/:id", profile.handleProfileGet(db));
+app.post('/register',register.handleRegister(db,bcrypt));
+
+app.get('/profile/:id', profile.handleProfileGet(db));
   
 app.put('/image', image.handleImage(db));
   
